@@ -31,7 +31,7 @@ Fig. 2. shows the general workflow for these methods. Scribbles-only approach re
 By using scribbles as interactions in a likelihood-based approach, this method provides a balance between fully-manual dilineation and fully-automatic segmentation methods. It is suitable for scenarios where a pre-trained deep learning model is not available, e.g. in cold start situations, as well as when starting to label a new dataset. 
 
 <span class="img_container center" style="display: block;">
-    <img alt="test" src="figures/scribbles-scribbles-only-mode.png" style="display:block; margin-left: auto; margin-right: auto;" title="caption" width=70% />
+    <img alt="test" src="figures/scribbles-scribbles-only-mode.png" style="display:block; margin-left: auto; margin-right: auto;" title="caption" width=85% />
     <br>
     <span class="img_caption" style="display: block; text-align: center;">Fig. 3. Scribbles-based labelling method currently implemented in all sample apps.</span>
 </span>
