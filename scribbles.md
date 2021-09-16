@@ -59,6 +59,5 @@ The workflow for this approach uses all connections in Fig. 1. It relies on a pr
 
 <br>
 
-<br>
-<br>
+---
 [1] Wang, Guotai, et al. "Interactive medical image segmentation using deep learning with image-specific fine tuning." IEEE transactions on medical imaging 37.7 (2018): 1562-1573.
