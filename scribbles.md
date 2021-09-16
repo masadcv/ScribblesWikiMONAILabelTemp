@@ -26,9 +26,9 @@ MONAILabel provides sample applications for both 1. and 2.
 <br>
 <br>
 
-Fig. 2. shows the general workflow for these methods. Scribbles-only approach relies on a user to provide scribbles to indicate regions belonging to both foreground and background regions. These scribbles are used to build an on-the-fly likelihood model that enables dileneation of foreground objects. An optimisation technique then refines these likelihood-based segmentations. The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset.
+Fig. 2. shows the general workflow for these methods. A scribbles-only approach relies on an annotator to provide scribbles to indicate regions belonging to both foreground and background objects. These scribbles are used to build an *on-the-fly* likelihood model that enables dileneation of foreground objects. An optimisation technique then refines these likelihood-based segmentations. The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset.
 
-By using scribbles as interactions in a likelihood-based approach, this method provides a balance between fully-manual dilineation and fully-automatic segmentation methods. It is suitable for scenarios where a pre-trained deep learning model is not available, e.g. in cold start situations, as well as when starting to label a new dataset. 
+By using scribbles as interactions in a likelihood-based approach, this method provides a balance between fully-automatic and fully-manual segmentation methods. It is suitable for scenarios where a pre-trained deep learning model is not available, e.g. in cold start situations, as well as when starting to label a new dataset. 
 
 <span class="img_container center" style="display: block;">
     <img alt="test" src="figures/scribbles-scribbles-only-mode.png" style="display:block; margin-left: auto; margin-right: auto;" title="caption" width=85% />
@@ -44,7 +44,7 @@ By using scribbles as interactions in a likelihood-based approach, this method p
 <br>
 
 ## 2. Scribbles-based Label Refinement
-The workflow for this approach uses all connections in Fig. 1. It relies on a pre-trained deep learning model to provide initial segmentations which are shown to an annotator who provides scribbles in places where correction is required. The original input volume, deep learning model output and user-scribbles are then used in scribbles-based label refinement stage which applies the correction using an energy optimisation technique (as shown in Fig. 4). The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset.
+The workflow for this approach uses all connections in Fig. 1. It relies on a pre-trained deep learning model to provide initial segmentations which are shown to an annotator who provides scribbles in places where corrections are required. The original input volume, deep learning model's output and user-scribbles are then used in scribbles-based label refinement stage which applies the correction using an energy optimisation technique (as shown in Fig. 4). The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset.
 
 <span class="img_container center" style="display: block;">
     <img alt="test" src="figures/scribbles-scribbles-based-label-refine.png" style="display:block; margin-left: auto; margin-right: auto;" title="caption"width=70% />
@@ -55,7 +55,7 @@ The workflow for this approach uses all connections in Fig. 1. It relies on a pr
 
 <br>
 
-> Tip: The MONAILabel sample apps zoo at [https://github.com/diazandr3s/MONAILabel-Apps](https://github.com/diazandr3s/MONAILabel-Apps) provides [an implementation of scribbles-based label refinement step](https://github.com/diazandr3s/MONAILabel-Apps/tree/AppsV02/segmentation_spleen_scribbles) from [[1]](https://arxiv.org/pdf/1710.04043.pdf) as an example to demonstrate the use-case for this approach.
+> Tip: The MONAILabel sample apps zoo at [https://github.com/diazandr3s/MONAILabel-Apps](https://github.com/diazandr3s/MONAILabel-Apps) provides [an implementation of scribbles-based label refinement approach](https://github.com/diazandr3s/MONAILabel-Apps/tree/AppsV02/segmentation_spleen_scribbles) from [[1]](https://arxiv.org/pdf/1710.04043.pdf) as an example to demonstrate the use-case for such approaches.
 
 <br>
 
