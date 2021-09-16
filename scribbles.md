@@ -1,3 +1,4 @@
+# Scribbles
 Scribbles are free-hand drawings, such as drawing with a pen on paper, which have been widely employed to propose a range of interactive segmentation methods [[1]](https://arxiv.org/pdf/1710.04043.pdf). Scribbles provide natural interaction, which most annotators are already familiar with. These interactions provide flexibility in annotators's workload, i.e. it can be as involved as needed; providing both minimal interactions for simpler delineation tasks and detailed interactions for more difficult segmentations. 
 
 MONAILabel provides APIs for implementing scribbles-based interactive segmentation workflow. An overview of such workflows is presented in Fig. 1 below. 
@@ -18,7 +19,8 @@ MONAILabel provides sample applications for both 1. and 2.
 
 ## 1. Scribbles-only
 <span class="img_container center" style="display: block;">
-    <img alt="test" src="figures/scribbles-on-the-fly-scribbles.png" style="display:block; margin-left: auto; margin-right: auto;max-width: 700px" title="caption" />
+    <img alt="test" src="figures/scribbles-on-the-fly-scribbles.png" style="display:block; margin-left: auto; margin-right: auto;max-width: 700px" title="caption" width=70% />
+    <br>
     <span class="img_caption" style="display: block; text-align: center;">Fig. 2. Scribbles-only flow for labelling data.</span>
 </span>
 <br>
