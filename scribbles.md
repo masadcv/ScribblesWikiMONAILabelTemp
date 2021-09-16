@@ -25,30 +25,39 @@ MONAILabel provides sample applications for both 1. and 2.
 <br>
 <br>
 
-Fig. 2. shows the general workflow for these methods. A scribbles-only approach relies on an annotator to provide scribbles to indicate regions belonging to both foreground and background objects. These scribbles are used to build an *on-the-fly* likelihood model that enables delineation of foreground objects [[4](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Criminisi_eccv2008.pdf)]. An energy optimisation technique then refines these likelihood-based segmentations [[2](https://cs.uwaterloo.ca/~yboykov/Papers/pami04.pdf), [3](https://cvg.ethz.ch/teaching/cvl/2012/grabcut-siggraph04.pdf)]. The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset. One additional approach to improve interaction in such workflows is to use a bounding box for selecting region of interest [[1](https://arxiv.org/pdf/1710.04043.pdf)], where anything outside the bounding box is selected as background scribbles. MONAILabel also provides this functionality by using ROI selection tool.
+Fig. 2. shows the general workflow for these methods. A scribbles-only approach relies on an annotator to provide scribbles to indicate regions belonging to both foreground and background objects. These scribbles are used to build an *on-the-fly* likelihood model that enables delineation of foreground objects [[4](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Criminisi_eccv2008.pdf)]. An energy optimisation technique then refines these likelihood-based segmentations [[2](https://cs.uwaterloo.ca/~yboykov/Papers/pami04.pdf), [3](https://cvg.ethz.ch/teaching/cvl/2012/grabcut-siggraph04.pdf)]. The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset. 
+
+One additional approach (shown in Fig. 3) to improve interaction in such workflows is to use a bounding box for selecting region of interest [[1](https://arxiv.org/pdf/1710.04043.pdf)], where anything outside the bounding box is selected as background scribbles. MONAILabel also provides this functionality by using ROI selection tool.
+
+<span class="img_container center" style="display: block;">
+    <img alt="test" src="figures/scribbles-boundingbox-roi-apply.png" style="display:block; margin-left: auto; margin-right: auto;" title="Fig. 3. Bounding box based background scribble application." width=60% />
+    <br>
+    <span class="img_caption" style="display: block; text-align: center;">Fig. 3. Bounding box based background scribble application.</span>
+</span>
+<br>
 
 By using scribbles as interactions in a likelihood-based approach, this method provides a balance between fully-automatic and fully-manual segmentation methods. It is suitable for scenarios where a pre-trained deep learning model is not available, e.g. in cold start situations, as well as when starting to label a new dataset. 
 
 <span class="img_container center" style="display: block;">
     <img alt="test" src="figures/scribbles-scribbles-only-mode.png" style="display:block; margin-left: auto; margin-right: auto;" title="caption" width=85% />
     <br>
-    <span class="img_caption" style="display: block; text-align: center;">Fig. 3. Scribbles-based labelling method currently implemented in all sample apps.</span>
+    <span class="img_caption" style="display: block; text-align: center;">Fig. 4. Scribbles-based labelling method currently implemented in all sample apps.</span>
 </span>
 <br>
 
 <br>
 
-> Tip: All current MONAILabel sample apps include one implementation of this mode called `Histogram+GraphCut`, which is based on methods from [[2](https://cs.uwaterloo.ca/~yboykov/Papers/pami04.pdf) and [[4](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Criminisi_eccv2008.pdf)]. The flow for this approach is shown in Fig. 3. You may find this [short demo for MONAILabel-based scribbles-only flow](https://www.youtube.com/watch?v=yhC27V3PvIQ) helpful in understanding its usage.
+> Tip: All current MONAILabel sample apps include one implementation of this mode called `Histogram+GraphCut`, which is based on methods from [[2](https://cs.uwaterloo.ca/~yboykov/Papers/pami04.pdf) and [[4](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/Criminisi_eccv2008.pdf)]. The flow for this approach is shown in Fig. 4. You may find this [short demo for MONAILabel-based scribbles-only flow](https://www.youtube.com/watch?v=yhC27V3PvIQ) helpful in understanding its usage.
 
 <br>
 
 ## Scribbles-based Label Refinement
-The workflow for this approach uses all connections in Fig. 1. It relies on a pre-trained deep learning model to provide initial segmentations which are shown to an annotator who provides scribbles in places where corrections are required. The original input volume, deep learning model's output and user-scribbles are then used in scribbles-based label refinement stage which applies the correction using an energy optimisation technique (as shown in Fig. 4). The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset.
+The workflow for this approach uses all connections in Fig. 1. It relies on a pre-trained deep learning model to provide initial segmentations which are shown to an annotator who provides scribbles in places where corrections are required. The original input volume, deep learning model's output and user-scribbles are then used in scribbles-based label refinement stage which applies the correction using an energy optimisation technique (as shown in Fig. 5). The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset.
 
 <span class="img_container center" style="display: block;">
     <img alt="test" src="figures/scribbles-scribbles-based-label-refine.png" style="display:block; margin-left: auto; margin-right: auto;" title="caption"width=70% />
     <br>
-    <span class="img_caption" style="display: block; text-align: center;">Fig. 4. Scribbles-based label refinement approach used for refining initial segmentation labels from a deep learning model.</span>
+    <span class="img_caption" style="display: block; text-align: center;">Fig. 5. Scribbles-based label refinement approach used for refining initial segmentation labels from a deep learning model.</span>
 </span>
 <br>
 
