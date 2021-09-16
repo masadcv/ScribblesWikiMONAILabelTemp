@@ -1,5 +1,5 @@
 # Scribbles
-Scribbles are free-hand drawings, such as drawing with a pen on paper, which have been widely employed to propose a range of interactive segmentation methods [[1]](https://arxiv.org/pdf/1710.04043.pdf). Scribbles provide natural interaction, which most annotators are already familiar with. hese interactions introduce flexibility in annotators's workload, i.e. it can be as involved as required; providing both minimal interactions for simpler delineation tasks and detailed interactions for more difficult segmentations. 
+Scribbles are free-hand drawings, such as drawing with a pen on paper, which have been widely employed to propose a range of interactive segmentation methods [[1]](https://arxiv.org/pdf/1710.04043.pdf). Scribbles provide natural interaction, which most annotators are already familiar with. These interactions introduce flexibility in annotators' workload, i.e. it can be as involved as required; providing both minimal interactions for simpler delineation tasks and detailed interactions for more difficult segmentations. 
 
 MONAILabel provides APIs for implementing scribbles-based interactive segmentation workflows. An overview of such workflows is presented in Fig. 1 below. 
 
@@ -26,7 +26,7 @@ MONAILabel provides sample applications for both 1. and 2.
 <br>
 <br>
 
-Fig. 2. shows the general workflow for these methods. A scribbles-only approach relies on an annotator to provide scribbles to indicate regions belonging to both foreground and background objects. These scribbles are used to build an *on-the-fly* likelihood model that enables dileneation of foreground objects. An optimisation technique then refines these likelihood-based segmentations. The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset.
+Fig. 2. shows the general workflow for these methods. A scribbles-only approach relies on an annotator to provide scribbles to indicate regions belonging to both foreground and background objects. These scribbles are used to build an *on-the-fly* likelihood model that enables dilineation of foreground objects. An optimisation technique then refines these likelihood-based segmentations. The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset.
 
 By using scribbles as interactions in a likelihood-based approach, this method provides a balance between fully-automatic and fully-manual segmentation methods. It is suitable for scenarios where a pre-trained deep learning model is not available, e.g. in cold start situations, as well as when starting to label a new dataset. 
 
