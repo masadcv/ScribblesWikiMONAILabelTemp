@@ -1,0 +1,49 @@
+Scribbles are free-hand drawings, such as drawing with a pen on paper, which have been widely employed to propose a range of interactive segmentation methods [[1]](https://arxiv.org/pdf/1710.04043.pdf). Scribbles provide natural interaction, which most annotators are already familiar with. These interactions provide flexibility in annotators's workload, i.e. it can be as involved as needed; providing both minimal interactions for simpler delineation tasks and detailed interactions for more difficult segmentations. 
+
+MONAILabel provides APIs for implementing scribbles-based interactive segmentation workflow. An overview of such workflows is presented in Fig. 1 below. 
+
+<span class="img_container center" style="display: block;">
+    <img alt="test" src="figures/scribbles-GeneralScribblesFlow.png" style="display:block; margin-left: auto; margin-right: auto;" title="caption" />
+    <span class="img_caption" style="display: block; text-align: center;">Fig. 1. A scribbles-based interactive segmentation workflow.</span>
+</span>
+<br>
+In the figure, optional inputs are connected with dotted lines. As can be seen, a scribbles-based interactive segmentation workflow can work in two modes,
+
+1. **Scribbles-only**: uses scribbles to generate segmentation labels
+2. **Scribbles-based label refinement**: refines segmentations from a deep learning model using user-scribbles.  
+
+MONAILabel provides sample applications for both 1. and 2.
+
+## 1. Scribbles-only
+<span class="img_container center" style="display: block;">
+    <img alt="test" src="figures/scribbles-on-the-fly-scribbles.png" style="display:block; margin-left: auto; margin-right: auto;" title="caption" />
+    <span class="img_caption" style="display: block; text-align: center;">Fig. 2. Scribbles-only flow for labelling data.</span>
+</span>
+<br>
+
+Fig. 2. shows the general workflow for these methods. Scribbles-only approach relies on a user to provide scribbles to indicate regions belonging to both foreground and background regions. These scribbles are used to build an on-the-fly likelihood model that enables dileneation of foreground objects. An optimisation technique then refines these likelihood-based segmentations. The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset.
+
+By using scribbles as interactions in a likelihood-based approach, this method provides a balance between fully-manual dilineation and fully-automatic segmentation methods. It is suitable for scenarios where a pre-trained deep learning model is not available, e.g. in cold start situations, as well as when starting to label a new dataset. 
+
+<span class="img_container center" style="display: block;">
+    <img alt="test" src="figures/scribbles-scribbles-only-mode.png" style="display:block; margin-left: auto; margin-right: auto;" title="caption" />
+    <span class="img_caption" style="display: block; text-align: center;">Fig. 3. Scribbles-based labelling method currently implemented in all sample apps.</span>
+</span>
+<br>
+
+> Tip: All current MONAILabel sample apps include one implementation of this mode called `Histogram+GraphCut`. The flow for this approach is shown in Fig. 3. 
+
+## 2. Scribbles-based Label Refinement
+The workflow for this approach uses all connections in Fig. 1. It relies on a pre-trained deep learning model to provide initial segmentations which are shown to an annotator who provides scribbles in places where correction is required. The original input volume, deep learning model output and user-scribbles are then used in scribbles-based label refinement stage which applies the correction using an energy optimisation technique (as shown in Fig. 4). The process can be repeated to provide additional user-scribbles to further refine the initial segmentations after which the label is saved into a dataset.
+
+<span class="img_container center" style="display: block;">
+    <img alt="test" src="figures/scribbles-scribbles-based-label-refine.png" style="display:block; margin-left: auto; margin-right: auto;" title="caption" />
+    <span class="img_caption" style="display: block; text-align: center;">Fig. 4. Scribbles-based label refinement approach used for refining initial segmentation labels from a deep learning model.</span>
+</span>
+<br>
+
+> Tip: The MONAILabel sample apps zoo at [https://github.com/diazandr3s/MONAILabel-Apps](https://github.com/diazandr3s/MONAILabel-Apps) provides [an implementation of scribbles-based label refinement step](https://github.com/diazandr3s/MONAILabel-Apps/tree/AppsV02/segmentation_spleen_scribbles) from [[1]](https://arxiv.org/pdf/1710.04043.pdf) as an example to demonstrate the use-case for this approach.
+
+<!-- ![Figure1](figures/scribbles-on-the-fly-scribbles.png) -->
+
+[1] Wang, Guotai, et al. "Interactive medical image segmentation using deep learning with image-specific fine tuning." IEEE transactions on medical imaging 37.7 (2018): 1562-1573.
